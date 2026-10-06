@@ -1,0 +1,27 @@
+body {
+    background-color: #111827;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.game-title {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.game-tagline {
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.game-description {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.start-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
