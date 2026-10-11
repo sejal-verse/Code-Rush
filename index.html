@@ -1,27 +1,137 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
 
-    <title>CodeRush</title>
+```
+<title>CodeRush ⚡ | Coding Challenge Game</title>
+
+<link rel="stylesheet" href="css/style.css">
+```
+
 </head>
 
 <body>
+    <main class="app-container">
 
-    </main>
-         
-        <section class="landing-screen">
-            <h1 class="game-title">CodeRush⚡</h1>
+```
+    <!-- LANDING SCREEN -->
+    <section class="landing-screen">
+        <div class="landing-content">
+            <p class="game-label">THE ULTIMATE CODING CHALLENGE</p>
+
+            <h1 class="game-title">CodeRush <span>⚡</span></h1>
+
             <p class="game-tagline">THINK. CODE. CONQUER.</p>
 
             <p class="game-description">
-                Test your skills. Beat the challenges. Level up.
+                Test your coding knowledge, solve challenges,
+                and prove that you have what it takes to become
+                a coding champion.
             </p>
 
-            <button class="start-button">START GAME</button>
-        </section>
+            <div class="game-features">
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <span>Test Your Logic</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <span>Earn Points</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🏆</span>
+                    <span>Beat Challenges</span>
+                </div>
+            </div>
+
+            <button class="start-button" type="button">
+                START GAME <span>→</span>
+            </button>
+
+            <p class="landing-footer">
+                READY, PLAYER ONE?
+            </p>
+        </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section class="game-screen" style="display: none;">
+
+        <!-- GAME HEADER -->
+        <header class="game-header">
+            <p class="game-logo">CodeRush <span>⚡</span></p>
+            <p class="game-level">LEVEL 1: CODE ROOKIE</p>
+        </header>
+
+        <!-- SCORE AND PROGRESS -->
+        <div class="game-progress">
+            <div class="progress-item">
+                <span class="progress-label">QUESTION</span>
+                <p>
+                    <span id="question-number">1</span>
+                    <span class="progress-divider">/</span>
+                    <span id="total-questions">5</span>
+                </p>
+            </div>
+
+            <div class="progress-item">
+                <span class="progress-label">YOUR SCORE</span>
+                <p><span id="score">0</span> <span class="score-unit">PTS</span></p>
+            </div>
+
+            <div class="progress-item">
+                <span class="progress-label">GAME MODE</span>
+                <p class="mode-name">PREDICT OUTPUT</p>
+            </div>
+        </div>
+
+        <!-- QUESTION CARD -->
+        <div class="question-card">
+
+            <div class="question-heading">
+                <span class="question-icon">🧠</span>
+                <h2>Predict the Output</h2>
+            </div>
+
+            <p class="question-text">
+                What will this Python code print?
+            </p>
+
+            <!-- JavaScript updates this code block -->
+            <pre><code>name = "CodeRush"
+```
+
+print(name)</code></pre>
+
+```
+            <!-- JavaScript creates the answer buttons here -->
+            <div class="answer-options">
+                <button class="answer-button" type="button">Python</button>
+                <button class="answer-button" type="button">CodeRush</button>
+                <button class="answer-button" type="button">name</button>
+                <button class="answer-button" type="button">Error</button>
+            </div>
+
+        </div>
+
+        <footer class="game-footer">
+            <p>⚡ THINK FAST. CODE SMART.</p>
+            <p>EVERY CHALLENGE MAKES YOU STRONGER.</p>
+        </footer>
+
+    </section>
+
+</main>
+
+<!-- Load the questions before the game logic -->
+<script src="js/questions.js"></script>
+<script src="js/game.js"></script>
+```
 
 </body>
 </html>
