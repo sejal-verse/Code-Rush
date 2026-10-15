@@ -3,8 +3,12 @@
 // ============================================
 
 const landingScreen = document.querySelector(".landing-screen");
+const languageScreen = document.querySelector(".language-screen");
 const gameScreen = document.querySelector(".game-screen");
+
 const startButton = document.querySelector(".start-button");
+const backButton = document.querySelector(".back-button");
+const languageButtons = document.querySelectorAll(".language-card");
 
 const questionNumber = document.querySelector("#question-number");
 const scoreDisplay = document.querySelector("#score");
@@ -15,6 +19,9 @@ const progressBar = document.querySelector("#progress-bar");
 const questionTitle = document.querySelector(".question-text");
 const codeBlock = document.querySelector(".question-card pre code");
 const answerOptions = document.querySelector(".answer-options");
+
+const homeButton = document.querySelector(".home-button");
+const changeLanguageButton = document.querySelector(".change-language-button");
 
 // ============================================
 // 2. GAME VARIABLES
@@ -28,7 +35,7 @@ let lives = 3;
 livesDisplay.textContent = "❤️ ❤️ ❤️";
 let timeLeft = 20;
 let timerInterval = null;
-
+let selectedLanguage = "";
 const timerDisplay = document.querySelector("#timer");
 
 
@@ -37,15 +44,9 @@ const timerDisplay = document.querySelector("#timer");
 // ============================================
 
 startButton.addEventListener("click", function () {
-    currentQuestionIndex = 0;
-    score = 0;
-    streak = 0;
-    streakDisplay.textContent = streak;
-
     landingScreen.style.display = "none";
-    gameScreen.style.display = "block";
-
-    showQuestion();
+    gameScreen.style.display = "none";
+    languageScreen.style.display = "block";
 });
 
 // ============================================
@@ -404,3 +405,86 @@ function showResults() {
 
     gameScreen.appendChild(resultsCard);
 }
+
+// ============================================
+// 9. SCREEN NAVIGATION
+// ============================================
+
+backButton.addEventListener("click", function () {
+    languageScreen.style.display = "none";
+    gameScreen.style.display = "none";
+    landingScreen.style.display = "block";
+});
+
+// ============================================
+// 10. SELECT A PROGRAMMING LANGUAGE
+// ============================================
+
+languageButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        selectedLanguage = button.dataset.language;
+
+        // Show the selected language in the browser console.
+        console.log("Selected language:", selectedLanguage);
+
+        if (selectedLanguage === "Python") {
+            startSelectedGame();
+        } else {
+            alert(
+                selectedLanguage +
+                " challenges are coming soon! Please select Python for now."
+            );
+        }
+    });
+});
+
+
+// ============================================
+// 11. START THE SELECTED GAME
+// ============================================
+
+function startSelectedGame() {
+    currentQuestionIndex = 0;
+    score = 0;
+    streak = 0;
+    lives = 3;
+    answered = false;
+
+    clearInterval(timerInterval);
+    timerInterval = null;
+
+    scoreDisplay.textContent = score;
+    streakDisplay.textContent = streak;
+    livesDisplay.textContent = "❤️ ❤️ ❤️";
+
+    landingScreen.style.display = "none";
+    languageScreen.style.display = "none";
+    gameScreen.style.display = "block";
+
+    showQuestion();
+}
+
+// ============================================
+// 12. NAVIGATE AWAY FROM THE GAME
+// ============================================
+
+function stopGameTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+homeButton.addEventListener("click", function () {
+    stopGameTimer();
+
+    gameScreen.style.display = "none";
+    languageScreen.style.display = "none";
+    landingScreen.style.display = "block";
+});
+
+changeLanguageButton.addEventListener("click", function () {
+    stopGameTimer();
+
+    gameScreen.style.display = "none";
+    landingScreen.style.display = "none";
+    languageScreen.style.display = "block";
+});

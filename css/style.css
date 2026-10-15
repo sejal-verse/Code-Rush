@@ -993,3 +993,317 @@ button:disabled {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* =========================================
+   LANGUAGE SELECTION SCREEN
+========================================= */
+
+.language-screen {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    animation: languageFadeIn 0.5s ease;
+}
+
+.language-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.language-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 16px 0;
+}
+
+.language-title span {
+    color: #00e5ff;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+.language-description {
+    color: #a5b4cc;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* LANGUAGE CARD GRID */
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+/* INDIVIDUAL LANGUAGE CARD */
+
+.language-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 190px;
+    padding: 25px 16px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(24, 31, 57, 0.95),
+        rgba(13, 18, 36, 0.98)
+    );
+
+    border: 1px solid rgba(128, 145, 190, 0.2);
+    border-radius: 18px;
+
+    color: #ffffff;
+    font-family: inherit;
+    text-align: center;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Subtle glow inside each card */
+
+.language-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at top,
+        rgba(0, 229, 255, 0.09),
+        transparent 70%
+    );
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+/* CARD HOVER EFFECT */
+
+.language-card:hover {
+    transform: translateY(-6px);
+    border-color: #00e5ff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 229, 255, 0.1),
+        0 0 15px rgba(0, 229, 255, 0.06);
+}
+
+.language-card:hover::before {
+    opacity: 1;
+}
+
+.language-card:focus-visible {
+    outline: 2px solid #00e5ff;
+    outline-offset: 4px;
+}
+
+/* LANGUAGE ICON */
+
+.language-icon {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    transition: transform 0.25s ease;
+}
+
+.language-card:hover .language-icon {
+    transform: scale(1.12);
+}
+
+/* LANGUAGE NAME */
+
+.language-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* LANGUAGE DESCRIPTION */
+
+.language-level {
+    color: #a5b4cc;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+/* BACK BUTTON */
+
+.back-button {
+    display: block;
+    margin: 0 auto;
+    padding: 13px 22px;
+
+    background: transparent;
+    border: 1px solid rgba(128, 145, 190, 0.35);
+    border-radius: 10px;
+
+    color: #c5cee0;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.back-button:hover {
+    color: #00e5ff;
+    border-color: #00e5ff;
+    background: rgba(0, 229, 255, 0.05);
+}
+
+/* SCREEN ANIMATION */
+
+@keyframes languageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+    .language-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .language-card {
+        min-height: 175px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .language-screen {
+        padding: 30px 16px;
+    }
+
+    .language-header {
+        margin-bottom: 28px;
+    }
+
+    .language-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .language-card {
+        min-height: 155px;
+        padding: 18px 10px;
+        gap: 10px;
+        border-radius: 14px;
+    }
+
+    .language-icon {
+        font-size: 2.2rem;
+    }
+
+    .language-name {
+        font-size: 1.1rem;
+    }
+
+    .language-level {
+        font-size: 0.73rem;
+    }
+
+    .language-description {
+        font-size: 0.9rem;
+    }
+
+    .back-button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* RESPECT REDUCED-MOTION PREFERENCES */
+
+@media (prefers-reduced-motion: reduce) {
+    .language-screen,
+    .language-card,
+    .language-card::before,
+    .language-icon,
+    .back-button {
+        animation: none;
+        transition: none;
+    }
+
+    .language-card:hover {
+        transform: none;
+    }
+}
+
+/* GAME NAVIGATION BUTTONS */
+
+.game-navigation {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.nav-button {
+    padding: 10px 16px;
+    border: 1px solid rgba(128, 145, 190, 0.35);
+    border-radius: 10px;
+    background: rgba(24, 31, 57, 0.85);
+    color: #c5cee0;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-button:hover {
+    color: #00e5ff;
+    border-color: #00e5ff;
+}
+
+.nav-button:focus-visible {
+    outline: 2px solid #00e5ff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .game-navigation {
+        justify-content: center;
+    }
+
+    .nav-button {
+        flex: 1;
+        min-height: 44px;
+    }
+}

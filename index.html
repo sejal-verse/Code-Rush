@@ -58,15 +58,87 @@
             </p>
         </div>
     </section>
+        <!-- LANGUAGE SELECTION SCREEN -->
+        <section class="language-screen" style="display: none;">
 
+            <div class="language-header">
+                <p class="game-label">CHOOSE YOUR BATTLEFIELD</p>
+
+                <h1 class="language-title">
+                    Select Your <span>Language</span>
+                </h1>
+
+                <p class="language-description">
+                    Pick a language, sharpen your skills, and conquer the challenges.
+                </p>
+            </div>
+
+            <div class="language-grid">
+
+                <button class="language-card" data-language="Python" type="button">
+                    <span class="language-icon">🐍</span>
+                    <span class="language-name">Python</span>
+                    <span class="language-level">Beginner Friendly</span>
+                </button>
+
+                <button class="language-card" data-language="C" type="button">
+                    <span class="language-icon">⚙️</span>
+                    <span class="language-name">C</span>
+                    <span class="language-level">Logic & Fundamentals</span>
+                </button>
+
+                <button class="language-card" data-language="C++" type="button">
+                    <span class="language-icon">🚀</span>
+                    <span class="language-name">C++</span>
+                    <span class="language-level">Logic & OOP</span>
+                </button>
+
+                <button class="language-card" data-language="Java" type="button">
+                    <span class="language-icon">☕</span>
+                    <span class="language-name">Java</span>
+                    <span class="language-level">Programming & OOP</span>
+                </button>
+
+                <button class="language-card" data-language="JavaScript" type="button">
+                    <span class="language-icon">🌐</span>
+                    <span class="language-name">JavaScript</span>
+                    <span class="language-level">Web Programming</span>
+                </button>
+
+                <button class="language-card" data-language="SQL" type="button">
+                    <span class="language-icon">🗃️</span>
+                    <span class="language-name">SQL</span>
+                    <span class="language-level">Database Challenges</span>
+                </button>
+
+            </div>
+
+            <button class="back-button" type="button">
+                ← BACK TO HOME
+            </button>
+
+        </section>
+        <!-- END LANGUAGE SELECTION SCREEN -->
+         
     <!-- GAME SCREEN -->
     <section class="game-screen" style="display: none;">
 
         <!-- GAME HEADER -->
-        <header class="game-header">
-            <p class="game-logo">CodeRush <span>⚡</span></p>
-            <p class="game-level">LEVEL 1: CODE ROOKIE</p>
-        </header>
+    <header class="game-header">
+        <p class="game-logo">CodeRush <span>⚡</span></p>
+        <p class="game-level">LEVEL 1: CODE ROOKIE</p>
+
+        <nav class="game-navigation">
+            <button class="nav-button home-button" type="button">
+                🏠 HOME
+            </button>
+
+            <button class="nav-button change-language-button" type="button">
+                ⚡BACK TO LANGUAGES
+            </button>
+        </nav>
+    </header>
+
 
         <!-- SCORE AND PROGRESS -->
         <div class="game-progress">
